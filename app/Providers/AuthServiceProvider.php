@@ -27,12 +27,6 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
         Passport::routes();
         
-        Gate::define("admin-only", function ($user){
-            if(1){
-                return true;
-            }else{
-                return false;
-            }
-        });
+        Gate::define('delete-product', 'App\Polices\ProductPolicy@delete');
     }
 }

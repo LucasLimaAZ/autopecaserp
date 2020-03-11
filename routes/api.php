@@ -31,7 +31,7 @@ Route::group([
 });
 
 Route::group([
-    'middleware' => 'auth:api'
+    'middleware' => ['auth:api', 'can:delete,product']
 ], function() {
     Route::resource('categories','CategoriesController');
     Route::resource('products','ProductController');
